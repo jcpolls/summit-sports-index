@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "michigan",
+    "publication": "The Michigan Daily",
+    "rss": "https://www.michigandaily.com/feed/",
+    "color": "#00274C",
+    "keywords_extra": ["wolverines", "big house", "mgoblue"]
+  },
+  {
+    "slug": "alabama",
+    "publication": "The Crimson White",
+    "rss": "https://thecrimsonwhite.com/feed/",
+    "color": "#9E1B32",
+    "keywords_extra": ["crimson tide", "rolltide", "bryant-denny"]
+  },
+  {
+    "slug": "oregon",
+    "publication": "The Daily Emerald",
+    "rss": "https://www.dailyemerald.com/feed/",
+    "color": "#154733",
+    "keywords_extra": ["ducks", "autzen", "goducks"]
+  },
+  {
+    "slug": "duke",
+    "publication": "The Duke Chronicle",
+    "rss": "https://www.dukechronicle.com/feeds/section/sports",
+    "color": "#003087",
+    "keywords_extra": ["blue devils", "cameron", "acc"]
+  },
+  {
+    "slug": "kansas",
+    "publication": "University Daily Kansan",
+    "rss": "https://www.kansan.com/search/?f=rss&t=article&c=sports&l=50&s=start_time&sd=desc",
+    "color": "#0051A5",
+    "keywords_extra": ["jayhawks", "phog allen", "big 12"]
+  }
+]
