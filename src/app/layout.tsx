@@ -69,15 +69,17 @@ function AppNav() {
   const alertCount = getRecentHighConfidenceCount()
 
   return (
-    <header className="border-b bg-background">
+    <header className="bg-[#1c2333] shadow-md">
       {/* Top bar */}
       <div className="flex h-14 items-center gap-4 px-6">
-        <span className="text-lg font-bold tracking-tight mr-2">
-          Athlet<span className="text-blue-600">IQ</span>
+        {/* Logo */}
+        <span className="text-base font-bold tracking-widest uppercase text-white mr-4 select-none">
+          Athlet<span className="text-[#38bdf8]">IQ</span>
         </span>
 
+        {/* School selector — styled for dark bg */}
         <Select value={selectedSchool} onValueChange={setSelectedSchool}>
-          <SelectTrigger className="w-48">
+          <SelectTrigger className="w-44 h-8 text-xs bg-white/10 border-white/20 text-white hover:bg-white/20 focus:ring-white/30">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -92,15 +94,15 @@ function AppNav() {
         <div className="flex-1" />
 
         {/* Role segmented control */}
-        <div className="flex items-center rounded-md border overflow-hidden">
+        <div className="flex items-center rounded-md border border-white/20 overflow-hidden">
           {ROLES.map((r) => (
             <button
               key={r}
               onClick={() => setRole(r)}
               className={`px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
                 role === r
-                  ? 'bg-foreground text-background'
-                  : 'hover:bg-muted text-muted-foreground'
+                  ? 'bg-white text-[#1c2333]'
+                  : 'text-white/70 hover:bg-white/10 hover:text-white'
               }`}
             >
               {r}
@@ -112,15 +114,19 @@ function AppNav() {
         <button onClick={() => setDemoMode(!demoMode)}>
           <Badge
             variant={demoMode ? 'default' : 'outline'}
-            className={demoMode ? 'bg-green-600 hover:bg-green-700 cursor-pointer' : 'cursor-pointer'}
+            className={
+              demoMode
+                ? 'bg-emerald-500 hover:bg-emerald-600 text-white border-0 cursor-pointer text-[11px]'
+                : 'border-white/30 text-white/60 cursor-pointer text-[11px] hover:bg-white/10'
+            }
           >
-            {demoMode ? 'Demo ON' : 'Demo OFF'}
+            {demoMode ? 'DEMO ON' : 'DEMO OFF'}
           </Badge>
         </button>
 
         {/* Notification bell */}
         <button
-          className="relative p-1.5 rounded-md hover:bg-muted transition-colors"
+          className="relative p-1.5 rounded-md hover:bg-white/10 transition-colors text-white/80 hover:text-white"
           onClick={() => setBellOpen(true)}
           aria-label="Open recent alerts"
         >
@@ -132,7 +138,7 @@ function AppNav() {
           )}
         </button>
 
-        {/* Bell Sheet — high-confidence events from last 7 days */}
+        {/* Bell Sheet */}
         <Sheet open={bellOpen} onOpenChange={setBellOpen}>
           <SheetContent side="right" className="w-full sm:max-w-2xl overflow-y-auto">
             <SheetHeader className="mb-4">
@@ -150,17 +156,17 @@ function AppNav() {
       </div>
 
       {/* Tab bar */}
-      <nav className="flex items-center gap-1 px-6">
+      <nav className="flex items-center gap-0.5 px-6 border-t border-white/10">
         {TABS.map(({ label, href, icon: Icon }) => {
           const active = pathname === href || pathname.startsWith(href + '/')
           return (
             <Link
               key={href}
               href={href}
-              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium border-b-2 transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium border-b-2 transition-colors whitespace-nowrap ${
                 active
-                  ? 'border-foreground text-foreground'
-                  : 'border-transparent text-muted-foreground hover:text-foreground hover:border-muted-foreground'
+                  ? 'border-[#38bdf8] text-white'
+                  : 'border-transparent text-white/55 hover:text-white/90 hover:border-white/30'
               }`}
             >
               <Icon className="h-3.5 w-3.5" />
@@ -200,7 +206,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Providers>
           <div className="flex h-screen flex-col overflow-hidden">
             <AppNav />
-            <main className="flex-1 overflow-auto bg-background">
+            <main className="flex-1 overflow-auto bg-[#f0f2f5]">
               <div className="max-w-screen-2xl mx-auto px-6 py-8">
                 {children}
               </div>
