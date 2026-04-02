@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import './globals.css'
 import { SCHOOLS } from '@/lib/constants/schools'
-import { Bell, LayoutDashboard, Trophy, Scale, Heart, Eye, BellRing, Settings } from 'lucide-react'
+import { Bell, LayoutDashboard, Trophy, Scale, Heart, Eye, BellRing, Settings, ChevronRight } from 'lucide-react'
 import {
   Select,
   SelectContent,
@@ -48,13 +48,13 @@ const geistMono = localFont({
 
 // ─── Tabs ─────────────────────────────────────────────────────────────────────
 const TABS = [
-  { label: 'Overview', href: '/overview', icon: LayoutDashboard },
-  { label: 'Rankings', href: '/rankings', icon: Trophy },
-  { label: 'Title IX / EADA', href: '/title-ix', icon: Scale },
-  { label: 'Donor Tracker', href: '/donor-tracker', icon: Heart },
-  { label: 'Reputation Watch', href: '/reputation', icon: Eye },
-  { label: 'Alerts', href: '/alerts', icon: BellRing },
-  { label: 'Settings', href: '/settings', icon: Settings },
+  { label: 'Overview',        href: '/overview',      icon: LayoutDashboard, subtitle: 'Command Center' },
+  { label: 'Rankings',        href: '/rankings',      icon: Trophy,          subtitle: 'Ranking Weight Explorer' },
+  { label: 'Title IX / EADA', href: '/title-ix',      icon: Scale,           subtitle: 'Compliance Dashboard' },
+  { label: 'Donor Tracker',   href: '/donor-tracker', icon: Heart,           subtitle: 'Donor Intelligence' },
+  { label: 'Reputation',      href: '/reputation',    icon: Eye,             subtitle: 'Reputation Watch' },
+  { label: 'Alerts',          href: '/alerts',        icon: BellRing,        subtitle: 'Alert Center' },
+  { label: 'Settings',        href: '/settings',      icon: Settings,        subtitle: 'Configuration' },
 ]
 
 const ROLES: Role[] = ['admin', 'donor', 'researcher']
@@ -68,14 +68,28 @@ function AppNav() {
   const [bellOpen, setBellOpen] = useState(false)
   const alertCount = getRecentHighConfidenceCount()
 
+  const activeTab = TABS.find(t => pathname === t.href || pathname.startsWith(t.href + '/'))
+  const selectedSchoolObj = SCHOOLS.find(s => s.slug === selectedSchool)
+
   return (
     <header className="bg-[#1c2333] shadow-md">
       {/* Top bar */}
       <div className="flex h-14 items-center gap-4 px-6">
-        {/* Logo */}
-        <span className="text-base font-bold tracking-widest uppercase text-white mr-4 select-none">
-          Athlet<span className="text-[#38bdf8]">IQ</span>
-        </span>
+        {/* Logo + page subtitle */}
+        <div className="mr-4 select-none">
+          <div className="flex items-center gap-2">
+            <span className="text-base font-bold tracking-widest uppercase text-white leading-none">
+              Athlet<span className="text-[#38bdf8]">IQ</span>
+            </span>
+            {/* Pro badge */}
+            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500 text-white leading-none">
+              Pro
+            </span>
+          </div>
+          {activeTab && (
+            <p className="text-[11px] text-white/45 mt-0.5 leading-none">{activeTab.subtitle}</p>
+          )}
+        </div>
 
         {/* School selector — styled for dark bg */}
         <Select value={selectedSchool} onValueChange={setSelectedSchool}>
@@ -92,6 +106,15 @@ function AppNav() {
         </Select>
 
         <div className="flex-1" />
+
+        {/* Right-side context: school · FY */}
+        {selectedSchoolObj && (
+          <span className="hidden md:flex items-center gap-1 text-[11px] text-white/50 mr-2">
+            {selectedSchoolObj.name}
+            <ChevronRight className="h-3 w-3 opacity-40" />
+            FY 2024–25
+          </span>
+        )}
 
         {/* Role segmented control */}
         <div className="flex items-center rounded-md border border-white/20 overflow-hidden">

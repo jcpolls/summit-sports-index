@@ -51,11 +51,25 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        // Category color system (matches mockup)
+        cat: {
+          finance:    "#2563eb",
+          coaching:   "#7c3aed",
+          wellness:   "#16a34a",
+          academic:   "#d97706",
+          facilities: "#ea580c",
+          titleix:    "#dc2626",
+          survey:     "#4b83c8",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        card: "0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04)",
+        "card-hover": "0 4px 12px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06)",
       },
     },
   },
