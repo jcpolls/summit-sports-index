@@ -14,8 +14,8 @@ export function Sidebar() {
       <div className="flex items-center gap-2 px-6 py-5 border-b">
         <Mountain className="h-6 w-6 text-primary" />
         <div>
-          <h1 className="text-sm font-bold leading-tight">Summit Sports</h1>
-          <p className="text-[10px] text-muted-foreground">Index</p>
+          <h1 className="text-sm font-bold leading-tight">AthletIQ</h1>
+          <p className="text-[10px] text-muted-foreground">Intelligence</p>
         </div>
       </div>
 
@@ -43,7 +43,7 @@ export function Sidebar() {
 
       <div className="border-t px-4 py-3">
         <p className="text-[10px] text-muted-foreground">
-          Summit Sports Index v1.0
+          AthletIQ v1.0
         </p>
       </div>
     </aside>

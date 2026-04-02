@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
         <p><strong>School:</strong> ${alert.school?.name || 'Unknown'}</p>
         <p>${alert.message}</p>
         <hr />
-        <p><em>Summit Sports Index - Automated Alert</em></p>
+        <p><em>AthletIQ - Automated Alert</em></p>
       `,
     }
 

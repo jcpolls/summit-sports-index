@@ -53,7 +53,7 @@ function stripHtml(html: string): string {
 
 async function fetchRss(url: string): Promise<RssItem[]> {
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'SummitSportsIndex/1.0 (RSS reader; educational research)' },
+    headers: { 'User-Agent': 'AthletIQ/1.0 (RSS reader; educational research)' },
     signal: AbortSignal.timeout(10000),
   })
   if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`)

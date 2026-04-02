@@ -73,7 +73,7 @@ function AppNav() {
       {/* Top bar */}
       <div className="flex h-14 items-center gap-4 px-6">
         <span className="text-lg font-bold tracking-tight mr-2">
-          Summit<span className="text-blue-600">Sports</span>
+          Athlet<span className="text-blue-600">IQ</span>
         </span>
 
         <Select value={selectedSchool} onValueChange={setSelectedSchool}>

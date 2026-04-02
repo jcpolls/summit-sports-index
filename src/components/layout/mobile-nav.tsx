@@ -24,8 +24,8 @@ export function MobileNav() {
         <div className="flex items-center gap-2 px-6 py-5 border-b">
           <Mountain className="h-6 w-6 text-primary" />
           <div>
-            <h1 className="text-sm font-bold leading-tight">Summit Sports</h1>
-            <p className="text-[10px] text-muted-foreground">Index</p>
+            <h1 className="text-sm font-bold leading-tight">AthletIQ</h1>
+            <p className="text-[10px] text-muted-foreground">Intelligence</p>
           </div>
         </div>
         <nav className="px-3 py-4 space-y-1">

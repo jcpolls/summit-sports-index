@@ -51,7 +51,7 @@ function buildEmailHtml(event: CoachEventPayload, institutionName: string): stri
   <div style="max-width: 540px; margin: 0 auto; background: #ffffff; border-radius: 12px; border: 1px solid #e5e7eb; overflow: hidden;">
     <!-- Header -->
     <div style="background: #111827; padding: 20px 24px;">
-      <p style="margin: 0; color: #9ca3af; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Summit Sports Index</p>
+      <p style="margin: 0; color: #9ca3af; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">AthletIQ</p>
       <h1 style="margin: 6px 0 0; color: #ffffff; font-size: 20px; font-weight: 700;">⚡ Coach Alert</h1>
     </div>
 
@@ -105,7 +105,7 @@ function buildEmailHtml(event: CoachEventPayload, institutionName: string): stri
     <!-- Footer -->
     <div style="padding: 16px 24px; background: #f9fafb; border-top: 1px solid #e5e7eb;">
       <p style="margin: 0; font-size: 11px; color: #9ca3af;">
-        You're receiving this because you have an active alert subscription in Summit Sports Index.
+        You're receiving this because you have an active alert subscription in AthletIQ.
         <br />To manage your alerts, visit the Alerts tab in the dashboard.
       </p>
     </div>
@@ -188,7 +188,7 @@ export async function POST(req: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Summit Sports <alerts@summitsports.io>',
+        from: 'AthletIQ <alerts@athletiq.io>',
         to: [sub.email],
         subject,
         html,

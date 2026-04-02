@@ -141,7 +141,7 @@ export default function SettingsPage() {
     setExporting(true)
     const a = document.createElement('a')
     a.href = '/api/export'
-    a.download = `summit-sports-export-${Date.now()}.json`
+    a.download = `athletiq-export-${Date.now()}.json`
     a.click()
     setTimeout(() => setExporting(false), 1000)
   }

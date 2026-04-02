@@ -73,7 +73,7 @@ function exportCsv(schools: RankedSchool[]) {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = 'summit-sports-rankings.csv'
+  a.download = 'athletiq-rankings.csv'
   a.click()
   URL.revokeObjectURL(url)
 }
